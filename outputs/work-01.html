@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Visuals 01</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: #f4f4ef;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.76)),
+          url("assets/work-01-head.jpg") center / cover no-repeat fixed;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .detail-page {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        padding: 28px clamp(18px, 5vw, 72px) 56px;
+      }
+
+      .detail-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.34);
+        backdrop-filter: blur(14px);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .series-id {
+        color: rgba(244, 244, 239, 0.66);
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .detail-hero {
+        align-self: end;
+        width: min(760px, 100%);
+        padding-top: 30vh;
+      }
+
+      .detail-kicker {
+        margin: 0 0 14px;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .detail-title {
+        margin: 0;
+        font-size: clamp(3rem, 11vw, 8rem);
+        font-weight: 900;
+        line-height: 0.86;
+        text-transform: uppercase;
+      }
+
+      .detail-copy {
+        width: min(520px, 100%);
+        margin: 20px 0 0;
+        color: rgba(244, 244, 239, 0.76);
+        font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+        line-height: 1.7;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="detail-page">
+      <nav class="detail-nav" aria-label="作品详情导航">
+        <a class="back-link" href="index.html#work">返回作品</a>
+        <span class="series-id">Series 01</span>
+      </nav>
+
+      <section class="detail-hero" aria-labelledby="detail-title">
+        <p class="detail-kicker">Creative Visuals</p>
+        <h1 class="detail-title" id="detail-title">Head<br />Study</h1>
+        <p class="detail-copy">
+          这里是 01 系列作品详情页，当前先使用“头”作为整页背景图，后续可以继续添加更多同系列作品、说明文字和图片排版。
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
