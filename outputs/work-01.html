@@ -10,6 +10,7 @@
       }
 
       body {
+        --scroll-dark: 0;
         margin: 0;
         min-height: 100vh;
         color: #f4f4ef;
@@ -19,16 +20,29 @@
           url("assets/work-01-head.jpg") center / cover no-repeat fixed;
       }
 
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background: #000;
+        opacity: var(--scroll-dark);
+        pointer-events: none;
+      }
+
       a {
         color: inherit;
         text-decoration: none;
       }
 
       .detail-page {
+        position: relative;
+        z-index: 1;
         min-height: 100vh;
         display: grid;
-        grid-template-rows: auto 1fr;
-        padding: 28px clamp(18px, 5vw, 72px) 56px;
+        grid-template-rows: auto 1fr auto;
+        gap: 18vh;
+        padding: 28px clamp(18px, 5vw, 72px) 12vh;
       }
 
       .detail-nav {
@@ -89,6 +103,36 @@
         font-size: clamp(0.9rem, 1.6vw, 1.05rem);
         line-height: 1.7;
       }
+
+      .video-stack {
+        display: grid;
+        gap: 42px;
+        justify-items: start;
+      }
+
+      .work-video {
+        width: min(50vw, 460px);
+        max-width: 100%;
+        justify-self: start;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.42);
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+      }
+
+      .work-video video {
+        width: 100%;
+        height: auto;
+        max-height: 82vh;
+        display: block;
+      }
+
+      @media (max-width: 720px) {
+        .detail-page {
+          gap: 12vh;
+          padding-bottom: 72px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -105,6 +149,27 @@
           这里是 01 系列作品详情页，当前先使用“头”作为整页背景图，后续可以继续添加更多同系列作品、说明文字和图片排版。
         </p>
       </section>
+
+      <section class="video-stack" aria-label="01 系列作品视频">
+        <div class="work-video">
+          <video src="assets/work-01-video.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <div class="work-video">
+          <video src="assets/work-01-video-02.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <div class="work-video">
+          <video src="assets/work-01-video-03.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+      </section>
     </main>
+    <script>
+      function updateBackgroundFade() {
+        const fade = Math.min(window.scrollY / Math.max(window.innerHeight * 0.85, 1), 0.86);
+        document.body.style.setProperty("--scroll-dark", fade.toFixed(3));
+      }
+
+      updateBackgroundFade();
+      window.addEventListener("scroll", updateBackgroundFade, { passive: true });
+    </script>
   </body>
 </html>

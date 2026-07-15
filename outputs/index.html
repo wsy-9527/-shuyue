@@ -530,9 +530,11 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 16px;
+        perspective: 1100px;
       }
 
       .work-card {
+        position: relative;
         min-height: 390px;
         display: grid;
         grid-template-rows: 1fr auto;
@@ -542,6 +544,36 @@
         background: var(--panel);
         color: var(--text);
         text-decoration: none;
+        transform: rotateX(var(--card-flip, 0deg)) scale(var(--card-scale, 1));
+        transform-style: preserve-3d;
+        transform-origin: center center;
+        transition:
+          transform 220ms cubic-bezier(0.2, 0.72, 0.24, 1),
+          border-color 220ms ease,
+          box-shadow 220ms ease;
+        will-change: transform;
+      }
+
+      .work-card.is-flip-active {
+        --card-scale: 1.035;
+        z-index: 5;
+        border-color: rgba(255, 255, 255, 0.28);
+        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.46);
+      }
+
+      .work-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 48%, rgba(0, 0, 0, 0.2));
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+
+      .work-card.is-flip-active::after {
+        opacity: 0.28;
       }
 
       .work-visual {
@@ -562,6 +594,20 @@
         display: block;
         object-fit: cover;
         object-position: center;
+      }
+
+      .work-visual img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .work-visual.cover-focus-top img {
+        object-position: center 30%;
       }
 
       .work-visual.has-media::before {
@@ -645,6 +691,11 @@
         color: #fff;
         font-size: 0.82rem;
         font-weight: 800;
+      }
+
+      .work-link[aria-disabled="true"] {
+        opacity: 0.45;
+        cursor: default;
       }
 
       .about {
@@ -1011,21 +1062,25 @@
             </div>
           </a>
 
-          <article class="work-card">
-            <div class="work-visual" data-index="02"></div>
+          <a class="work-card" href="work-02.html" aria-label="查看 Form Design 作品系列">
+            <div class="work-visual has-media cover-focus-top" data-index="02">
+              <img src="assets/work-card-02.jpg" alt="02 系列作品封面" />
+            </div>
             <div class="work-meta">
               <h3>Form Design</h3>
               <p>构成、版式、点线面和视觉系统研究的作品占位。</p>
-              <a class="work-link" href="#">查看作品 →</a>
+              <span class="work-link">查看作品 →</span>
             </div>
-          </article>
+          </a>
 
           <article class="work-card">
-            <div class="work-visual" data-index="03"></div>
+            <div class="work-visual has-media" data-index="03">
+              <img src="assets/work-card-03.png" alt="03 系列作品封面" />
+            </div>
             <div class="work-meta">
               <h3>Brand Identity</h3>
               <p>品牌识别、活动视觉和商业项目案例的作品占位。</p>
-              <a class="work-link" href="#">查看作品 →</a>
+              <span class="work-link" aria-disabled="true">查看作品 →</span>
             </div>
           </article>
 
@@ -1034,7 +1089,7 @@
             <div class="work-meta">
               <h3>Web Experience</h3>
               <p>网页、交互、动效和数字体验方向的作品占位。</p>
-              <a class="work-link" href="#">查看作品 →</a>
+              <span class="work-link" aria-disabled="true">查看作品 →</span>
             </div>
           </article>
 
@@ -1043,7 +1098,7 @@
             <div class="work-meta">
               <h3>Motion Vision</h3>
               <p>动态视觉、短片、生成式影像探索的作品占位。</p>
-              <a class="work-link" href="#">查看作品 →</a>
+              <span class="work-link" aria-disabled="true">查看作品 →</span>
             </div>
           </article>
 
@@ -1052,7 +1107,7 @@
             <div class="work-meta">
               <h3>Beyond Design</h3>
               <p>设计之外的观察、记录和个人实验内容占位。</p>
-              <a class="work-link" href="#">查看作品 →</a>
+              <span class="work-link" aria-disabled="true">查看作品 →</span>
             </div>
           </article>
         </div>
@@ -1062,10 +1117,10 @@
         <div class="about">
           <h2 class="about-statement" id="about-title">Stop<br />Overthinking<br />Just Do It</h2>
           <ul class="profile-list">
-            <li><strong>身份</strong><span>创意探索者 / Visual Designer</span></li>
-            <li><strong>方向</strong><span>AI Creative, Brand, Web, Art Direction</span></li>
-            <li><strong>状态</strong><span>作品集骨架搭建中</span></li>
-            <li><strong>联系</strong><span>hello@example.com</span></li>
+            <li><strong>身份</strong><span>设计狮</span></li>
+            <li><strong>方向</strong><span>AI creative, graphic design, branding, website design, art direction</span></li>
+            <li><strong>状态</strong><span>at any time</span></li>
+            <li><strong>联系v</strong><span>B_R_W_A_N</span></li>
           </ul>
         </div>
       </section>
@@ -1154,6 +1209,26 @@
           uiShowcase.classList.add("is-in-view");
         }
       }
+
+      const workCards = [...document.querySelectorAll(".work-card")];
+
+      workCards.forEach((card) => {
+        card.addEventListener("pointerenter", () => {
+          card.classList.add("is-flip-active");
+        });
+
+        card.addEventListener("pointermove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const progress = Math.min(Math.max((event.clientY - rect.top) / rect.height, 0), 1);
+          const rotate = (progress - 0.5) * -180;
+          card.style.setProperty("--card-flip", `${rotate.toFixed(2)}deg`);
+        });
+
+        card.addEventListener("pointerleave", () => {
+          card.classList.remove("is-flip-active");
+          card.style.setProperty("--card-flip", "0deg");
+        });
+      });
     </script>
   </body>
 </html>
