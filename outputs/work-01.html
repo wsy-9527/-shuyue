@@ -106,8 +106,9 @@
 
       .video-stack {
         display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 42px;
-        justify-items: start;
+        align-items: start;
       }
 
       .work-video {
@@ -118,6 +119,27 @@
         border: 1px solid rgba(255, 255, 255, 0.18);
         background: rgba(0, 0, 0, 0.42);
         box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+      }
+
+      .work-video.is-right {
+        grid-column: 2;
+        grid-row: 3;
+        justify-self: end;
+      }
+
+      .work-video:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .work-video:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .work-video:nth-child(3) {
+        grid-column: 1;
+        grid-row: 3;
       }
 
       .work-video video {
@@ -131,6 +153,18 @@
         .detail-page {
           gap: 12vh;
           padding-bottom: 72px;
+        }
+
+        .video-stack {
+          grid-template-columns: 1fr;
+        }
+
+        .work-video,
+        .work-video.is-right {
+          grid-column: auto;
+          grid-row: auto;
+          width: 100%;
+          justify-self: stretch;
         }
       }
     </style>
@@ -159,6 +193,9 @@
         </div>
         <div class="work-video">
           <video src="assets/work-01-video-03.mp4" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <div class="work-video is-right">
+          <video src="assets/work-01-video-04.mp4" muted loop playsinline autoplay preload="metadata"></video>
         </div>
       </section>
     </main>

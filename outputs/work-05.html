@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring City Music 05</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: #f4f4ef;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 50% 12%, rgba(216, 186, 118, 0.2), transparent 34%),
+          linear-gradient(180deg, #080808 0%, #000 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .detail-page {
+        min-height: 100vh;
+        padding: 28px clamp(18px, 5vw, 72px) 72px;
+        overflow-x: hidden;
+      }
+
+      .detail-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .back-link,
+      .pdf-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .series-id {
+        color: rgba(244, 244, 239, 0.62);
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .detail-hero {
+        width: min(820px, 100%);
+        margin: 16vh auto 7vh;
+        text-align: center;
+      }
+
+      .detail-kicker {
+        margin: 0 0 14px;
+        color: rgba(244, 244, 239, 0.64);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .detail-title {
+        margin: 0;
+        font-size: clamp(3.2rem, 10vw, 8rem);
+        font-weight: 900;
+        line-height: 0.86;
+        text-transform: uppercase;
+      }
+
+      .detail-copy {
+        width: min(560px, 100%);
+        margin: 22px auto 0;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+        line-height: 1.7;
+      }
+
+      .pdf-stage {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .pdf-toolbar {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 12px;
+      }
+
+      .pdf-frame {
+        width: 100%;
+        height: min(82vh, 980px);
+        min-height: 620px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 24px 68px rgba(0, 0, 0, 0.4);
+      }
+
+      .pdf-frame iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #111;
+      }
+
+      @media (max-width: 720px) {
+        .detail-hero {
+          margin-top: 12vh;
+          text-align: left;
+        }
+
+        .detail-copy {
+          margin-left: 0;
+        }
+
+        .pdf-toolbar {
+          justify-content: flex-start;
+        }
+
+        .pdf-frame {
+          min-height: 560px;
+          border-radius: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="detail-page">
+      <nav class="detail-nav" aria-label="作品详情导航">
+        <a class="back-link" href="index.html#work">返回作品</a>
+        <span class="series-id">Series 05</span>
+      </nav>
+
+      <section class="detail-hero" aria-labelledby="detail-title">
+        <p class="detail-kicker">Visual Identity</p>
+        <h1 class="detail-title" id="detail-title">Spring<br />City Music</h1>
+        <p class="detail-copy">
+          春城之乐 LOGO 与 VI 手册放在详情页中预览，保留完整 PDF 版式，方便直接翻阅品牌视觉系统。
+        </p>
+      </section>
+
+      <section class="pdf-stage" aria-label="春城之乐 LOGO VI 手册 PDF">
+        <div class="pdf-toolbar">
+          <a class="pdf-link" href="assets/work-05-brand-manual.pdf" target="_blank" rel="noreferrer">打开 PDF</a>
+        </div>
+        <div class="pdf-frame">
+          <iframe src="assets/work-05-brand-manual.pdf#view=FitH" title="春城之乐 LOGO VI 手册"></iframe>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
