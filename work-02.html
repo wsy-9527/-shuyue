@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Design 02</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        --scroll-dark: 0;
+        margin: 0;
+        min-height: 100vh;
+        color: #f4f4ef;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #000;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .detail-page {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+        padding: 28px clamp(18px, 5vw, 72px) 72px;
+        overflow-x: hidden;
+      }
+
+      .background-video {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #000;
+        pointer-events: none;
+      }
+
+      .background-fade {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        background:
+          radial-gradient(circle at 50% 18%, rgba(180, 123, 62, 0.2), transparent 34%),
+          rgba(0, 0, 0, var(--scroll-dark));
+        pointer-events: none;
+      }
+
+      .detail-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .series-id {
+        color: rgba(244, 244, 239, 0.62);
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .detail-hero {
+        width: min(780px, 100%);
+        margin: 18vh auto 8vh;
+        text-align: center;
+      }
+
+      .detail-kicker {
+        margin: 0 0 14px;
+        color: rgba(244, 244, 239, 0.62);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .detail-title {
+        margin: 0;
+        font-size: clamp(3.2rem, 10vw, 8rem);
+        font-weight: 900;
+        line-height: 0.86;
+        text-transform: uppercase;
+      }
+
+      .detail-copy {
+        width: min(560px, 100%);
+        margin: 22px auto 0;
+        color: rgba(244, 244, 239, 0.7);
+        font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+        line-height: 1.7;
+      }
+
+      .poster-row {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        column-gap: 10px;
+        row-gap: 18px;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 100%;
+        padding: 6px 0 24px;
+      }
+
+      .poster-card {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+      }
+
+      .poster-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .poster-card.is-wide {
+        grid-column: span 2;
+      }
+
+      .poster-card.is-panorama {
+        grid-column: span 3;
+      }
+
+      @media (max-width: 720px) {
+        .detail-hero {
+          margin-top: 12vh;
+          text-align: left;
+        }
+
+        .detail-copy {
+          margin-left: 0;
+        }
+
+        .poster-row {
+          grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+        }
+
+        .poster-card.is-wide,
+        .poster-card.is-panorama {
+          grid-column: span 2;
+        }
+
+        .poster-card {
+          border-radius: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <video class="background-video" src="assets/work-02-bg.mp4" muted loop playsinline autoplay preload="metadata"></video>
+    <div class="background-fade" aria-hidden="true"></div>
+
+    <main class="detail-page">
+      <nav class="detail-nav" aria-label="作品详情导航">
+        <a class="back-link" href="index.html#work">返回作品</a>
+        <span class="series-id">Series 02</span>
+      </nav>
+
+      <section class="detail-hero" aria-labelledby="detail-title">
+        <p class="detail-kicker">Form Design</p>
+        <h1 class="detail-title" id="detail-title">Museum<br />Posters</h1>
+        <p class="detail-copy">
+          这里展示 02 系列作品，图片采用横向排列，后续可以继续补充项目说明、封面、动效或更多延展内容。
+        </p>
+      </section>
+
+      <section class="poster-row" aria-label="02 系列作品图片">
+        <figure class="poster-card"><img src="assets/work-02-aiwei.jpg" alt="艾维美术馆海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-railway.jpg" alt="铁路博物馆海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-toy.jpg" alt="玩具博物馆海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-incense.jpg" alt="香学博物馆海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-yunzi.jpg" alt="云子博物馆海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-zitao.jpg" alt="紫陶博物馆海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-space.jpg" alt="旧厂房海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-01.png" alt="去民族村寨赶一个约会吧海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-02.jpg" alt="御风录海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-03.png" alt="家门口的秘境最香海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-04.png" alt="昆明剧院海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-05.png" alt="老昆明杂书馆海报" /></figure>
+          <figure class="poster-card"><img src="assets/work-02-06.png" alt="国际范发现昆明的另一面海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-07.png" alt="开放同聚海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-row3-01.jpg" alt="滇池田埂教授之家海报" /></figure>
+        <figure class="poster-card"><img src="assets/work-02-row3-02.jpg" alt="走进西山升庵祠海报" /></figure>
+        <figure class="poster-card is-panorama"><img src="assets/work-02-row3-03.jpg" alt="春城之乐城市音乐会视觉" /></figure>
+        <figure class="poster-card is-wide"><img src="assets/work-02-row3-04.png" alt="御风录视觉" /></figure>
+        <figure class="poster-card is-panorama"><img src="assets/work-02-row3-05.png" alt="春城飞花视觉" /></figure>
+      </section>
+    </main>
+    <script>
+      function updateBackgroundFade() {
+        const fade = Math.min(window.scrollY / Math.max(window.innerHeight * 0.85, 1), 0.9);
+        document.body.style.setProperty("--scroll-dark", fade.toFixed(3));
+      }
+
+      updateBackgroundFade();
+      window.addEventListener("scroll", updateBackgroundFade, { passive: true });
+    </script>
+  </body>
+</html>
