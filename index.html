@@ -737,6 +737,36 @@
         gap: 14px;
       }
 
+      .profile-panel {
+        display: grid;
+        gap: 18px;
+      }
+
+      .profile-photo {
+        position: relative;
+        min-height: 320px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid var(--faint);
+        background:
+          linear-gradient(135deg, rgba(165, 255, 66, 0.12), transparent 38%),
+          linear-gradient(315deg, rgba(134, 168, 255, 0.14), transparent 42%),
+          rgba(255, 255, 255, 0.035);
+        color: rgba(244, 244, 239, 0.58);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .profile-photo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
       .profile-list li {
         display: grid;
         grid-template-columns: 92px 1fr;
@@ -1017,6 +1047,10 @@
           gap: 6px;
         }
 
+        .profile-photo {
+          min-height: 260px;
+        }
+
         .capability-grid {
           grid-template-columns: 1fr;
         }
@@ -1169,12 +1203,21 @@
       <section class="section" id="about" aria-labelledby="about-title">
         <div class="about">
           <h2 class="about-statement" id="about-title">Stop<br />Overthinking<br />Just Do It</h2>
-          <ul class="profile-list">
-            <li><strong>身份</strong><span>新媒体视觉策划执行 / 内容视觉设计师</span></li>
-            <li><strong>方向</strong><span>AI creative, graphic design, campaign visual, character styling, art direction</span></li>
-            <li><strong>技能</strong><span>PS / AI / Figma / PR / AE / Midjourney / 即梦 / 可灵 / 拍摄修图 / tapnow</span></li>
-            <li><strong>联系</strong><span>WeChat: B_R_W_A_N / 邮箱: 842293541@qq.com</span></li>
-          </ul>
+          <div class="profile-panel">
+            <div class="profile-photo">
+              <img src="assets/profile-photo.jpg" alt="舒月个人照片" />
+            </div>
+            <ul class="profile-list">
+              <li><strong>姓名</strong><span>舒月</span></li>
+              <li><strong>年龄</strong><span>28</span></li>
+              <li><strong>学历</strong><span>本科 / 数字媒体</span></li>
+              <li><strong>所在地</strong><span>昆明</span></li>
+              <li><strong>身份</strong><span>新媒体视觉策划执行 / 内容视觉设计师</span></li>
+              <li><strong>方向</strong><span>AI creative, graphic design, campaign visual, character styling, art direction</span></li>
+              <li><strong>技能</strong><span>PS / AI / Figma / PR / AE / Midjourney / 即梦 / 可灵 / 拍摄修图 / tapnow</span></li>
+              <li><strong>联系</strong><span>WeChat: B_R_W_A_N / 邮箱: 842293541@qq.com</span></li>
+            </ul>
+          </div>
         </div>
         <div class="capability-grid" aria-label="能力关键词">
           <article class="capability-item">
