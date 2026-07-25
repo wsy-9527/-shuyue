@@ -189,6 +189,15 @@
         line-height: 1.6;
       }
 
+      .role-line {
+        width: min(560px, 100%);
+        margin: 18px auto 0;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: clamp(0.84rem, 1.6vw, 1rem);
+        font-weight: 700;
+        line-height: 1.7;
+      }
+
       .hero-banner {
         position: absolute;
         inset: 0;
@@ -743,6 +752,37 @@
         font-weight: 700;
       }
 
+      .capability-grid {
+        width: min(1180px, 100%);
+        margin: 38px auto 0;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .capability-item {
+        min-height: 150px;
+        padding: 18px;
+        border: 1px solid var(--faint);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .capability-item strong {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--acid);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .capability-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.65;
+      }
+
       @media (max-width: 920px) {
         .topbar {
           grid-template-columns: auto 1fr auto;
@@ -755,6 +795,10 @@
         .section-header,
         .about {
           grid-template-columns: 1fr;
+        }
+
+        .capability-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .ui-showcase {
@@ -972,6 +1016,10 @@
           grid-template-columns: 1fr;
           gap: 6px;
         }
+
+        .capability-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -989,13 +1037,13 @@
     <main>
       <section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Creative Story &amp; Collection</p>
+          <p class="eyebrow">Visual Planning / Content Design / Art Direction</p>
           <h1 class="hero-title" id="hero-title">
-            <span>Work</span>
-            <span>Now</span>
+            <span>Wei</span>
+            <span>Shuyue</span>
           </h1>
-          <p class="hero-subcopy">
-            这里先搭建个人作品集骨架：黑色沉浸式背景、透明顶部导航、首屏视觉占位和下方作品卡片区，后续可替换为真实项目封面与详情。
+          <p class="role-line">
+            做有情绪、有角色感、能被点开的视觉内容。关注人物形象、平台内容包装与新媒体传播，从概念、妆造、拍摄到社媒物料落地。
           </p>
         </div>
 
@@ -1050,7 +1098,7 @@
             <h2 class="section-title" id="work-title">Create<br />Anything</h2>
           </div>
           <p class="section-note">
-            作品先用分类卡片占位。每张卡都预留了封面、标题、简介与入口，之后可以直接换成真实作品内容。
+            作品按新媒体视觉策划执行的工作方式整理：从内容概念、封面点击、活动宣发、人物妆造到品牌系统，保留个人风格，也交代执行链路。
           </p>
         </div>
 
@@ -1060,8 +1108,8 @@
               <video src="assets/work-card-01.mp4" aria-label="作品分类卡片 01 视频" muted loop playsinline autoplay preload="metadata"></video>
             </div>
             <div class="work-meta">
-              <h3>Creative Visuals</h3>
-              <p>AI 视觉、图像实验、创意表达方向的作品占位。</p>
+              <h3>AI Visual Process</h3>
+              <p>AI 视觉、动态图像和情绪化分镜实验，展示从风格探索到视觉落地的创意流程。</p>
               <span class="work-link">查看作品 →</span>
             </div>
           </a>
@@ -1071,8 +1119,8 @@
               <img src="assets/work-card-02.jpg" alt="02 系列作品封面" />
             </div>
             <div class="work-meta">
-              <h3>Form Design</h3>
-              <p>构成、版式、点线面和视觉系统研究的作品占位。</p>
+              <h3>Content Posters</h3>
+              <p>城市文化、展览与活动海报，重点呈现标题层级、信息组织和信息流传播感。</p>
               <span class="work-link">查看作品 →</span>
             </div>
           </a>
@@ -1082,8 +1130,8 @@
               <img src="assets/work-card-03.png" alt="03 系列作品封面" />
             </div>
             <div class="work-meta">
-              <h3>Brand Identity</h3>
-              <p>品牌识别、活动视觉和商业项目案例的作品占位。</p>
+              <h3>Campaign Visuals</h3>
+              <p>舞台、直播和节庆主题视觉，适合活动宣发、平台专题和 IP 氛围包装。</p>
               <span class="work-link">查看作品 →</span>
             </div>
           </a>
@@ -1093,8 +1141,8 @@
               <img src="assets/work-card-04.jpg" alt="04 系列作品封面" />
             </div>
             <div class="work-meta">
-              <h3>Makeup Studies</h3>
-              <p>妆造、人物形象和视觉氛围整理的作品占位。</p>
+              <h3>Character Styling</h3>
+              <p>人物妆造、角色感封面和视觉氛围，适配创作型博主与内容账号视觉包装。</p>
               <span class="work-link">查看作品 →</span>
             </div>
           </a>
@@ -1105,7 +1153,7 @@
             </div>
             <div class="work-meta">
               <h3>Spring City Music</h3>
-              <p>春城之乐 LOGO 与 VI 手册整理的品牌视觉作品。</p>
+              <p>春城之乐 LOGO 与 VI 手册，展示品牌识别、延展规范和活动应用场景。</p>
               <span class="work-link">查看作品 →</span>
             </div>
           </a>
@@ -1113,8 +1161,8 @@
           <article class="work-card">
             <div class="work-visual" data-index="06"></div>
             <div class="work-meta">
-              <h3>Beyond Design</h3>
-              <p>设计之外的观察、记录和个人实验内容占位。</p>
+              <h3>Next Extension</h3>
+              <p>计划补充小红书账号包装、博主人设视觉系统、短视频封面模板和数据复盘页。</p>
               <span class="work-link" aria-disabled="true">查看作品 →</span>
             </div>
           </article>
@@ -1125,11 +1173,29 @@
         <div class="about">
           <h2 class="about-statement" id="about-title">Stop<br />Overthinking<br />Just Do It</h2>
           <ul class="profile-list">
-            <li><strong>身份</strong><span>设计狮</span></li>
-            <li><strong>方向</strong><span>AI creative, graphic design, branding, website design, art direction</span></li>
-            <li><strong>状态</strong><span>at any time</span></li>
-            <li><strong>联系v</strong><span>B_R_W_A_N</span></li>
+            <li><strong>身份</strong><span>新媒体视觉策划执行 / 内容视觉设计师</span></li>
+            <li><strong>方向</strong><span>AI creative, graphic design, campaign visual, character styling, art direction</span></li>
+            <li><strong>技能</strong><span>PS / AI / Figma / PR / AE / Midjourney / 即梦 / 可灵 / 拍摄修图</span></li>
+            <li><strong>联系</strong><span>WeChat: B_R_W_A_N</span></li>
           </ul>
+        </div>
+        <div class="capability-grid" aria-label="能力关键词">
+          <article class="capability-item">
+            <strong>Platform Sense</strong>
+            <p>理解小红书、B站等内容平台的封面、标题、信息密度和年轻用户视觉偏好。</p>
+          </article>
+          <article class="capability-item">
+            <strong>Visual Planning</strong>
+            <p>能从选题和情绪关键词出发，制定 moodboard、拍摄方向、主视觉和物料延展。</p>
+          </article>
+          <article class="capability-item">
+            <strong>Fast Execution</strong>
+            <p>覆盖海报、封面、长图、活动 KV、短视频包装和品牌应用的快速落地。</p>
+          </article>
+          <article class="capability-item">
+            <strong>AI Workflow</strong>
+            <p>用 AI 辅助概念发散、风格探索、分镜生成与素材测试，再由人工完成审美把控。</p>
+          </article>
         </div>
       </section>
     </main>

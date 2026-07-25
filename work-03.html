@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brand Identity 03</title>
+    <title>Twelve Flower Gods 03</title>
     <style>
       * {
         box-sizing: border-box;
@@ -21,6 +21,10 @@
       a {
         color: inherit;
         text-decoration: none;
+      }
+
+      figure {
+        margin: 0;
       }
 
       .background-video {
@@ -47,7 +51,7 @@
         position: relative;
         z-index: 2;
         min-height: 100vh;
-        padding: 28px clamp(18px, 5vw, 72px) 72px;
+        padding: 28px clamp(18px, 5vw, 72px) 84px;
         overflow-x: hidden;
       }
 
@@ -66,6 +70,7 @@
         border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
         font-size: 0.82rem;
         font-weight: 800;
       }
@@ -79,14 +84,14 @@
       }
 
       .detail-hero {
-        width: min(760px, 100%);
+        width: min(840px, 100%);
         margin: 18vh auto 7vh;
         text-align: center;
       }
 
       .detail-kicker {
         margin: 0 0 14px;
-        color: rgba(244, 244, 239, 0.64);
+        color: rgba(244, 244, 239, 0.68);
         font-size: 0.82rem;
         font-weight: 800;
         letter-spacing: 0.14em;
@@ -102,54 +107,283 @@
       }
 
       .detail-copy {
-        width: min(560px, 100%);
+        width: min(620px, 100%);
         margin: 22px auto 0;
-        color: rgba(244, 244, 239, 0.72);
+        color: rgba(244, 244, 239, 0.76);
         font-size: clamp(0.9rem, 1.6vw, 1.05rem);
         line-height: 1.7;
       }
 
-      .gallery-wrap {
+      .case-panel,
+      .showcase-section {
         width: min(1080px, 100%);
+        margin-inline: auto;
+      }
+
+      .project-group {
+        width: min(1120px, 100%);
         margin: 0 auto;
+        display: grid;
+        gap: 28px;
+        padding: 24px;
+        border: 1px solid rgba(244, 244, 239, 0.16);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+          rgba(0, 0, 0, 0.22);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+      }
+
+      .project-group + .showcase-section,
+      .project-group + .project-group {
+        margin-top: 64px;
+      }
+
+      .project-group .case-panel,
+      .project-group .showcase-section {
+        width: 100%;
+      }
+
+      .project-group .case-panel {
+        margin-bottom: 4px;
+      }
+
+      .project-group .showcase-section + .showcase-section {
+        margin-top: 0;
+      }
+
+      .project-heading {
+        display: grid;
+        grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+        padding-bottom: 18px;
+        border-bottom: 1px solid rgba(244, 244, 239, 0.16);
+      }
+
+      .project-heading h2 {
+        margin: 10px 0 0;
+        font-size: clamp(1.35rem, 2.6vw, 2.2rem);
+        line-height: 1.05;
+      }
+
+      .project-heading p {
+        margin: 0;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: 0.92rem;
+        line-height: 1.72;
+      }
+
+      .case-panel {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 52px;
+      }
+
+      .case-item {
+        min-height: 144px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(0, 0, 0, 0.38);
+        backdrop-filter: blur(12px);
+      }
+
+      .case-item strong,
+      .section-label {
+        display: block;
+        color: #a5ff42;
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .case-item strong {
+        margin-bottom: 12px;
+      }
+
+      .case-item p {
+        margin: 0;
+        color: rgba(244, 244, 239, 0.74);
+        font-size: 0.82rem;
+        line-height: 1.62;
+      }
+
+      .showcase-section {
         display: grid;
         gap: 18px;
       }
 
-      .gallery-strip {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
+      .showcase-section + .showcase-section {
+        margin-top: 56px;
       }
 
-      .gallery-card {
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+        padding-top: 0;
+      }
+
+      .section-heading h2 {
+        margin: 10px 0 0;
+        font-size: clamp(1.05rem, 2vw, 1.55rem);
+        font-weight: 850;
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
         margin: 0;
-        flex: 1 1 0;
+        color: rgba(244, 244, 239, 0.68);
+        font-size: 0.9rem;
+        line-height: 1.68;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .feature-grid.is-overview {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 0.75fr);
+      }
+
+      .feature-grid.is-landing {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .visual-card {
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
       }
 
-      .gallery-spacer {
-        flex: 0 0 42px;
-        min-height: 1px;
-      }
-
-      .gallery-strip.is-second-row .gallery-card {
-        flex: 0 0 calc((100% - 112px) / 7);
-      }
-
-      .gallery-card img {
+      .visual-card img {
         display: block;
         width: 100%;
         height: auto;
       }
 
-      .gallery-strip.is-second-row .gallery-card.match-fourth img {
-        aspect-ratio: 1235 / 1800;
+      .visual-card.is-contain img {
         object-fit: contain;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .visual-card.is-focus img {
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .visual-card.is-small {
+        align-self: start;
+      }
+
+      .visual-card.is-small img {
+        max-height: 360px;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .visual-card figcaption {
+        padding: 12px 14px 14px;
+        color: rgba(244, 244, 239, 0.68);
+        font-size: 0.78rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .poster-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .poster-grid.is-compact {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+      }
+
+      .poster-card {
+        aspect-ratio: 2 / 3;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+      }
+
+      .poster-card img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .label-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .label-card {
+        display: grid;
+        place-items: center;
+        min-height: 220px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        background: rgba(255, 255, 255, 0.055);
+      }
+
+      .label-card img {
+        width: min(100%, 220px);
+        height: auto;
+        display: block;
+      }
+
+      .label-card.is-mockup img {
+        width: 100%;
+      }
+
+      .material-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(0, 0.68fr) minmax(0, 1.25fr) minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+      }
+
+      .material-card {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+      }
+
+      .material-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .material-card figcaption {
+        padding: 12px 14px 14px;
+        color: rgba(244, 244, 239, 0.68);
+        font-size: 0.78rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .extension-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+        gap: 10px;
+        align-items: start;
+      }
+
+      .extension-grid .poster-card {
+        width: 100%;
       }
 
       @media (max-width: 960px) {
@@ -157,34 +391,63 @@
           margin-top: 12vh;
         }
 
-        .gallery-strip {
-          overflow-x: auto;
-          padding-bottom: 12px;
-          scroll-snap-type: x proximity;
+        .case-panel,
+        .feature-grid,
+        .feature-grid.is-overview,
+        .feature-grid.is-landing,
+        .material-grid,
+        .project-heading,
+        .section-heading {
+          grid-template-columns: 1fr;
         }
 
-        .gallery-card {
-          flex: 0 0 150px;
-          scroll-snap-align: start;
+        .poster-grid,
+        .poster-grid.is-compact {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
-        .gallery-spacer {
-          flex-basis: 42px;
+        .extension-grid {
+          grid-template-columns: 1fr;
         }
-
-        .gallery-strip.is-second-row .gallery-card {
-          flex-basis: 150px;
+        
+        .label-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-
       }
 
       @media (max-width: 720px) {
+        .detail-page {
+          padding-bottom: 56px;
+        }
+
         .detail-hero {
           text-align: left;
         }
 
         .detail-copy {
           margin-left: 0;
+        }
+
+        .project-group {
+          padding: 18px;
+        }
+
+        .case-panel,
+        .label-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .poster-grid,
+        .poster-grid.is-compact {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .extension-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .showcase-section + .showcase-section {
+          margin-top: 48px;
         }
       }
     </style>
@@ -200,32 +463,190 @@
       </nav>
 
       <section class="detail-hero" aria-labelledby="detail-title">
-        <p class="detail-kicker">Brand Identity</p>
-        <h1 class="detail-title" id="detail-title">Stage<br />Posters</h1>
+        <p class="detail-kicker">Campaign Visuals / Guofeng Character System</p>
+        <h1 class="detail-title" id="detail-title">Twelve<br />Flower Gods</h1>
         <p class="detail-copy">
-          这组图片放在详情页中部的横排区域，每张图都缩小处理，按从左到右一排展示七张。
+          以十二月令花神为主题，将人物海报、瓶贴包装、国风馆空间效果和落地应用整理成一套可传播、可延展、可进入线下场景的国风视觉系统。
         </p>
       </section>
 
-      <section class="gallery-wrap" aria-label="03 系列作品图片">
-        <div class="gallery-strip">
-          <figure class="gallery-card"><img src="assets/work-03-01.jpg" alt="离岸三公里的风海报" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-02.jpg" alt="作品海报 02" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-03.jpg" alt="作品海报 03" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-04.jpg" alt="作品海报 04" /></figure>
-          <div class="gallery-spacer" aria-hidden="true"></div>
-          <figure class="gallery-card"><img src="assets/work-03-05.jpg" alt="作品海报 05" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-06.jpg" alt="作品海报 06" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-07.jpg" alt="作品海报 07" /></figure>
+      <section class="project-group" aria-labelledby="flower-project-title">
+        <div class="project-heading">
+          <div>
+            <span class="section-label">Visual System 01</span>
+            <h2 id="flower-project-title">十二花神系列视觉系统</h2>
+          </div>
+          <p>这一组不是单独的海报、瓶贴或空间图，而是一套围绕“十二月令花神 + 城市花卉延展”展开的主题视觉物料：人物海报建立 IP 角色，瓶贴承接文创产品，国风馆完成线下空间落地，蓝花楹继续延展为城市限定活动传播。</p>
         </div>
-        <div class="gallery-strip is-second-row">
-          <figure class="gallery-card"><img src="assets/work-03-11.jpg" alt="Colorday 直播海报" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-08.jpg" alt="作品海报 08" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-09.jpg" alt="作品海报 09" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-10.jpg" alt="作品海报 10" /></figure>
-          <figure class="gallery-card match-fourth"><img src="assets/work-03-12.png" alt="二月杏花花神海报" /></figure>
-          <figure class="gallery-card match-fourth"><img src="assets/work-03-13.png" alt="六月荷花花神海报" /></figure>
-          <figure class="gallery-card"><img src="assets/work-03-14.png" alt="八月桂花花神海报" /></figure>
+
+        <section class="case-panel" aria-label="十二花神项目说明">
+          <article class="case-item">
+            <strong>Project Type</strong>
+            <p>国风主题视觉 / 人物海报系统 / 文创包装与空间落地。</p>
+          </article>
+          <article class="case-item">
+            <strong>My Role</strong>
+            <p>主题策划、角色视觉统一、海报排版、瓶贴延展、空间应用整理。</p>
+          </article>
+          <article class="case-item">
+            <strong>Output</strong>
+            <p>十二花神人物海报、集合海报、瓶贴、瓶贴效果图、国风馆效果图与落地图。</p>
+          </article>
+          <article class="case-item">
+            <strong>Value</strong>
+            <p>从单张人物视觉扩展到活动宣发和文创场景，适配文化 IP、城市活动与新媒体专题。</p>
+          </article>
+        </section>
+
+        <section class="showcase-section" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">主题总览</span>
+            <h2 id="overview-title">主题总览</h2>
+          </div>
+          <p>招聘者第一眼需要看到“这是一整套项目”。这里先放集合海报和空间落地，把主题、角色数量和应用场景一次性交代清楚。</p>
+        </div>
+        <div class="feature-grid is-overview">
+          <figure class="visual-card is-contain">
+            <img src="assets/flower-gods-collection.jpg" alt="十二花神集合海报" />
+            <figcaption>十二花神集合海报</figcaption>
+          </figure>
+          <figure class="visual-card is-focus">
+            <img src="assets/flower-gods-pavilion-render.jpg" alt="国风馆效果图" />
+            <figcaption>国风馆效果图</figcaption>
+          </figure>
+          <figure class="visual-card is-small">
+            <img src="assets/flower-gods-label-mockup.jpg" alt="十二花神瓶贴效果图" />
+            <figcaption>瓶贴效果图</figcaption>
+          </figure>
+        </div>
+        </section>
+
+        <section class="showcase-section" aria-labelledby="poster-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">海报设计延展</span>
+            <h2 id="poster-title">月令人物海报</h2>
+          </div>
+          <p>人物海报按月份排列，展示同一视觉母题下的角色差异：花材、人物状态、色彩和版式保持统一，但每一张都有独立记忆点。</p>
+        </div>
+        <div class="poster-grid">
+          <figure class="poster-card"><img src="assets/flower-gods-01-plum.jpg" alt="一月梅花花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-12.png" alt="二月杏花花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-03-peach.jpg" alt="三月桃花花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-04-peony.jpg" alt="四月牡丹花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-05-pomegranate.jpg" alt="五月石榴花花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-13.png" alt="六月荷花花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-07-hollyhock.jpg" alt="七月蜀葵花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-14.png" alt="八月桂花花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-09-chrysanthemum.jpg" alt="九月菊花花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-10-hibiscus.jpg" alt="十月芙蓉花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-11-camellia.jpg" alt="十一月山茶花神人物海报" /></figure>
+          <figure class="poster-card"><img src="assets/flower-gods-12-narcissus.jpg" alt="十二月水仙花神人物海报" /></figure>
+        </div>
+        </section>
+
+        <section class="showcase-section" aria-labelledby="package-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">包装设计延展</span>
+            <h2 id="package-title">瓶贴包装延展</h2>
+          </div>
+          <p>把花神角色从海报延展到瓶贴包装，补足“视觉系统能否应用到真实产品”的证据。后续可以继续增加材质、尺寸和打样说明。</p>
+        </div>
+        <div class="label-grid">
+          <figure class="label-card"><img src="assets/flower-gods-label-01.png" alt="十二花神瓶贴设计 01" /></figure>
+          <figure class="label-card"><img src="assets/flower-gods-label-02.png" alt="十二花神瓶贴设计 02" /></figure>
+          <figure class="label-card"><img src="assets/flower-gods-label-03.png" alt="十二花神瓶贴设计 03" /></figure>
+          <figure class="label-card is-mockup"><img src="assets/flower-gods-label-mockup.jpg" alt="十二花神瓶贴效果图" /></figure>
+        </div>
+        </section>
+
+        <section class="showcase-section" aria-labelledby="landing-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">空间落地应用</span>
+            <h2 id="landing-title">国风馆落地应用</h2>
+          </div>
+          <p>线下效果图和落地图能直接回应招聘方关心的执行问题：视觉不只停在屏幕里，也可以进入展陈、活动现场和品牌空间。</p>
+        </div>
+        <div class="feature-grid is-landing">
+          <figure class="visual-card">
+            <img src="assets/flower-gods-pavilion-render.jpg" alt="十二花神国风馆效果图" />
+            <figcaption>空间效果</figcaption>
+          </figure>
+          <figure class="visual-card">
+            <img src="assets/flower-gods-pavilion-map.jpg" alt="十二花神国风馆落地图" />
+            <figcaption>落地图</figcaption>
+          </figure>
+        </div>
+        </section>
+
+        <section class="showcase-section" aria-labelledby="extension-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">城市花卉延展</span>
+            <h2 id="extension-title">蓝花楹城市延展</h2>
+          </div>
+          <p>蓝花楹作为城市花卉延展，适合后续包装成“城市限定角色”或社媒专题视觉，让系列不止停在十二月令。</p>
+        </div>
+        <div class="extension-grid">
+          <figure class="poster-card"><img src="assets/flower-gods-jacaranda.jpg" alt="蓝花楹主题人物海报" /></figure>
+          <figure class="visual-card">
+            <img src="assets/flower-gods-jacaranda-event.jpg" alt="十二花神空降昆明烟火街区活动图" />
+            <figcaption>蓝花楹主题活动图</figcaption>
+          </figure>
+        </div>
+      </section>
+      </section>
+
+      <section class="showcase-section" aria-labelledby="wanmei-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">06 / Live Campaign Visuals</span>
+            <h2 id="wanmei-title">玩美了直播物料</h2>
+          </div>
+          <p>第二套物料以直播传播和现场搭建为主，顺序按内容从线上预热视频/贴片到直播间与线下现场落地展开，展示活动视觉在多触点中的统一执行。</p>
+        </div>
+        <div class="material-grid">
+          <figure class="material-card">
+            <img src="assets/wanmei-live-poster.jpg" alt="玩美了直播海报" />
+            <figcaption>直播海报</figcaption>
+          </figure>
+          <figure class="material-card">
+            <img src="assets/wanmei-live-overlay.jpg" alt="玩美了直播贴片" />
+            <figcaption>直播贴片</figcaption>
+          </figure>
+          <figure class="material-card">
+            <img src="assets/wanmei-live-room.jpg" alt="玩美了直播间搭建" />
+            <figcaption>直播间搭建</figcaption>
+          </figure>
+          <figure class="material-card">
+            <img src="assets/wanmei-onsite-build.jpg" alt="玩美了现场搭建" />
+            <figcaption>现场搭建</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="showcase-section" aria-labelledby="other-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-label">07 / Other Campaign Visuals</span>
+            <h2 id="other-title">其他活动海报</h2>
+          </div>
+          <p>保留原 03 页里的其他舞台、直播和活动海报，作为同一作品页的补充视觉案例。这里更适合展示你对不同活动主题的快速转译能力。</p>
+        </div>
+        <div class="poster-grid is-compact">
+          <figure class="poster-card"><img src="assets/work-03-01.jpg" alt="离岸三公里的风海报" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-02.jpg" alt="活动海报 02" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-03.jpg" alt="活动海报 03" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-04.jpg" alt="活动海报 04" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-05.jpg" alt="活动海报 05" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-06.jpg" alt="活动海报 06" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-07.jpg" alt="活动海报 07" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-08.jpg" alt="活动海报 08" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-09.jpg" alt="活动海报 09" /></figure>
+          <figure class="poster-card"><img src="assets/work-03-10.jpg" alt="活动海报 10" /></figure>
         </div>
       </section>
     </main>

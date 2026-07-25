@@ -89,6 +89,37 @@
         line-height: 1.7;
       }
 
+      .case-panel {
+        width: min(1040px, 100%);
+        margin: 0 auto 34px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .case-item {
+        min-height: 138px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .case-item strong {
+        display: block;
+        margin-bottom: 12px;
+        color: #a5ff42;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .case-item p {
+        margin: 0;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.62;
+      }
+
       .pdf-stage {
         width: min(1120px, 100%);
         margin: 0 auto;
@@ -133,6 +164,10 @@
           justify-content: flex-start;
         }
 
+        .case-panel {
+          grid-template-columns: 1fr;
+        }
+
         .pdf-frame {
           min-height: 560px;
           border-radius: 6px;
@@ -151,8 +186,27 @@
         <p class="detail-kicker">Visual Identity</p>
         <h1 class="detail-title" id="detail-title">Spring<br />City Music</h1>
         <p class="detail-copy">
-          春城之乐 LOGO 与 VI 手册放在详情页中预览，保留完整 PDF 版式，方便直接翻阅品牌视觉系统。
+          为城市音乐项目建立一套具有春城气质的视觉识别，从 LOGO、色彩、版式规范延展到活动物料应用。
         </p>
+      </section>
+
+      <section class="case-panel" aria-label="05 系列项目说明">
+        <article class="case-item">
+          <strong>Project Type</strong>
+          <p>品牌识别 / 城市音乐活动 VI / 传播物料规范。</p>
+        </article>
+        <article class="case-item">
+          <strong>My Role</strong>
+          <p>Logo 方向、视觉系统、色彩与字体规范、版式手册和应用场景整理。</p>
+        </article>
+        <article class="case-item">
+          <strong>Output</strong>
+          <p>VI 手册、品牌基础规范、活动海报与线上线下应用预览。</p>
+        </article>
+        <article class="case-item">
+          <strong>Value</strong>
+          <p>展示从单张视觉到系统化品牌资产的能力，适合活动运营和品牌内容团队。</p>
+        </article>
       </section>
 
       <section class="pdf-stage" aria-label="春城之乐 LOGO VI 手册 PDF">

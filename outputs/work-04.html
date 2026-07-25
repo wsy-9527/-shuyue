@@ -116,6 +116,38 @@
         line-height: 1.7;
       }
 
+      .case-panel {
+        width: min(1040px, 100%);
+        margin: 0 auto 34px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .case-item {
+        min-height: 138px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(12px);
+      }
+
+      .case-item strong {
+        display: block;
+        margin-bottom: 12px;
+        color: #a5ff42;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .case-item p {
+        margin: 0;
+        color: rgba(244, 244, 239, 0.74);
+        font-size: 0.82rem;
+        line-height: 1.62;
+      }
+
       .gallery-wrap {
         width: min(1160px, 100%);
         margin: 0 auto;
@@ -183,6 +215,10 @@
         .detail-copy {
           margin-left: 0;
         }
+
+        .case-panel {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -200,8 +236,27 @@
         <p class="detail-kicker">Makeup Studies</p>
         <h1 class="detail-title" id="detail-title">Face<br />Light</h1>
         <p class="detail-copy">
-          04 系列把妆造、人物和光感放在一起看，主图先做成一张沉浸式横幅，后面再用多张竖图和局部图补足节奏。
+          以人物妆造作为内容账号的视觉锚点，用发色、眼妆、道具和光感塑造可被记住的角色气质。
         </p>
+      </section>
+
+      <section class="case-panel" aria-label="04 系列项目说明">
+        <article class="case-item">
+          <strong>Project Type</strong>
+          <p>创作型博主人设包装 / 妆造视觉 / 人物封面方向。</p>
+        </article>
+        <article class="case-item">
+          <strong>My Role</strong>
+          <p>妆造概念、角色关键词、拍摄氛围、后期调色、封面版式与系列命名。</p>
+        </article>
+        <article class="case-item">
+          <strong>Output</strong>
+          <p>人物主视觉、头像/封面素材、图文封面模板、短视频片头视觉参考。</p>
+        </article>
+        <article class="case-item">
+          <strong>Value</strong>
+          <p>强化账号记忆点，让内容在小红书、B站等平台更容易形成统一视觉资产。</p>
+        </article>
       </section>
 
       <section class="gallery-wrap" aria-label="04 系列作品图片">
