@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      body {
+        --scroll-dark: 0;
+        margin: 0;
+        min-height: 100vh;
+        color: #f4f4ef;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 50% 12%, rgba(134, 168, 255, 0.18), transparent 34%),
+          linear-gradient(180deg, #080808 0%, #000 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .detail-page {
+        min-height: 100vh;
+        padding: 28px clamp(18px, 5vw, 72px) 72px;
+        overflow-x: hidden;
+      }
+
+      .detail-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .series-id {
+        color: rgba(244, 244, 239, 0.62);
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .detail-hero {
+        width: min(860px, 100%);
+        margin: 16vh auto 7vh;
+        text-align: center;
+      }
+
+      .detail-kicker {
+        margin: 0 0 14px;
+        color: rgba(244, 244, 239, 0.64);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .detail-title {
+        margin: 0;
+        font-size: clamp(3.2rem, 10vw, 8rem);
+        font-weight: 900;
+        line-height: 0.86;
+        text-transform: uppercase;
+      }
+
+      .detail-copy {
+        width: min(620px, 100%);
+        margin: 22px auto 0;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+        line-height: 1.7;
+      }
+
+      .case-panel {
+        width: min(1040px, 100%);
+        margin: 0 auto 34px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .case-item {
+        min-height: 138px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .case-item strong {
+        display: block;
+        margin-bottom: 12px;
+        color: #a5ff42;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .case-item p {
+        margin: 0;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.62;
+      }
+
+      .section-heading {
+        width: min(1120px, 100%);
+        margin: 0 auto 18px;
+      }
+
+      .section-label {
+        display: block;
+        color: #a5ff42;
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-heading h2 {
+        margin: 10px 0 0;
+        font-size: clamp(1.35rem, 2.6vw, 2.2rem);
+        line-height: 1.05;
+      }
+
+      .motion-grid {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .motion-card {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+      }
+
+      .motion-card video {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #111;
+      }
+
+      .motion-card figcaption {
+        padding: 12px 14px 14px;
+        color: rgba(244, 244, 239, 0.72);
+        font-size: 0.82rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      @media (max-width: 720px) {
+        .detail-hero {
+          margin-top: 12vh;
+          text-align: left;
+        }
+
+        .detail-copy {
+          margin-left: 0;
+        }
+
+        .case-panel,
+        .motion-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="detail-page">
+      <nav class="detail-nav" aria-label="作品详情导航">
+        <a class="back-link" href="index.html#work">返回作品</a>
+        <span class="series-id">Series 06</span>
+      </nav>
+
+      <section class="detail-hero" aria-labelledby="detail-title">
+        <p class="detail-kicker">AIGC Motion Lab</p>
+        <h1 class="detail-title" id="detail-title">AIGC Motion<br />Lab</h1>
+        <p class="detail-copy">
+          AI 生成影像、动态视觉和实验短片合集，按主题分区整理，持续收录 AIGC 创作过程与结果。
+        </p>
+      </section>
+
+      <section class="case-panel" aria-label="06 系列项目说明">
+        <article class="case-item">
+          <strong>My Role</strong>
+          <p>AIGC 影像生成、动态视觉筛选、短片节奏整理与内容分区编排。</p>
+        </article>
+      </section>
+
+      <section class="section-heading" aria-labelledby="motion-title">
+        <span class="section-label">AIGC Archive</span>
+        <h2 id="motion-title">Motion Experiments</h2>
+      </section>
+
+      <section class="motion-grid" aria-labelledby="motion-title">
+        <figure class="motion-card">
+          <video src="assets/aigc-motion/01.mp4" controls muted playsinline preload="metadata"></video>
+          <figcaption>01</figcaption>
+        </figure>
+        <figure class="motion-card">
+          <video src="assets/aigc-motion/02.mp4" controls muted playsinline preload="metadata"></video>
+          <figcaption>02</figcaption>
+        </figure>
+        <figure class="motion-card">
+          <video src="assets/aigc-motion/03.mp4" controls muted playsinline preload="metadata"></video>
+          <figcaption>03</figcaption>
+        </figure>
+        <figure class="motion-card">
+          <video src="assets/aigc-motion/04.mp4" controls muted playsinline preload="metadata"></video>
+          <figcaption>04</figcaption>
+        </figure>
+      </section>
+    </main>
+    <script>
+      function updateBackgroundFade() {
+        const fade = Math.min(window.scrollY / Math.max(window.innerHeight * 0.85, 1), 0.9);
+        document.body.style.setProperty("--scroll-dark", fade.toFixed(3));
+      }
+
+      updateBackgroundFade();
+      window.addEventListener("scroll", updateBackgroundFade, { passive: true });
+    </script>
+  </body>
+</html>
