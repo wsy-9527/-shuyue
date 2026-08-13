@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>06</title>
+    <title>AIGC Motion Lab | Wei Shuyue Portfolio</title>
     <style>
       * {
         box-sizing: border-box;
@@ -148,8 +148,8 @@
         width: min(1120px, 100%);
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
       }
 
       .motion-card {
@@ -169,11 +169,36 @@
       }
 
       .motion-card figcaption {
-        padding: 12px 14px 14px;
+        padding: 10px 12px 12px;
         color: rgba(244, 244, 239, 0.72);
-        font-size: 0.82rem;
+        font-size: 0.76rem;
         line-height: 1.5;
         text-align: center;
+      }
+
+      .workflow-link {
+        width: min(1120px, 100%);
+        margin: 18px auto 0;
+        padding: 14px 16px;
+        border: 1px solid rgba(165, 255, 66, 0.36);
+        background: rgba(165, 255, 66, 0.07);
+      }
+
+      .workflow-link strong {
+        display: block;
+        margin-bottom: 6px;
+        color: #a5ff42;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .workflow-link a {
+        color: rgba(244, 244, 239, 0.82);
+        font-size: 0.86rem;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        overflow-wrap: anywhere;
       }
 
       @media (max-width: 720px) {
@@ -210,6 +235,14 @@
 
       <section class="case-panel" aria-label="06 系列项目说明">
         <article class="case-item">
+          <strong>Project</strong>
+          <p>鲸落</p>
+        </article>
+        <article class="case-item">
+          <strong>Type</strong>
+          <p>科普片十分钟</p>
+        </article>
+        <article class="case-item">
           <strong>My Role</strong>
           <p>AIGC 影像生成、动态视觉筛选、短片节奏整理与内容分区编排。</p>
         </article>
@@ -238,6 +271,13 @@
           <figcaption>04</figcaption>
         </figure>
       </section>
+
+      <div class="workflow-link" aria-label="TapNow 工作流">
+        <strong>TapNow Workflow</strong>
+        <a href="https://app.tapnow.ai/tapflow/view/69875f9e" target="_blank" rel="noreferrer">
+          打开鲸落工作流
+        </a>
+      </div>
     </main>
     <script>
       function updateBackgroundFade() {
