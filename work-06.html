@@ -144,6 +144,22 @@
         line-height: 1.05;
       }
 
+      .project-section {
+        width: min(1120px, 100%);
+        margin: 0 auto 72px;
+      }
+
+      .project-section .case-panel,
+      .project-section .section-heading,
+      .project-section .motion-grid,
+      .project-section .workflow-link {
+        width: 100%;
+      }
+
+      .project-section .case-panel {
+        margin-bottom: 28px;
+      }
+
       .motion-grid {
         width: min(1120px, 100%);
         margin: 0 auto;
@@ -233,51 +249,58 @@
         </p>
       </section>
 
-      <section class="case-panel" aria-label="06 系列项目说明">
-        <article class="case-item">
-          <strong>Project</strong>
-          <p>鲸落</p>
-        </article>
-        <article class="case-item">
-          <strong>Type</strong>
-          <p>科普片十分钟</p>
-        </article>
-        <article class="case-item">
-          <strong>My Role</strong>
-          <p>AIGC 影像生成、动态视觉筛选、短片节奏整理与内容分区编排。</p>
-        </article>
-      </section>
+      <section class="project-section" aria-labelledby="project-01-title">
+        <section class="section-heading" aria-labelledby="project-01-title">
+          <span class="section-label">Project 01</span>
+          <h2 id="project-01-title">鲸落</h2>
+        </section>
 
-      <section class="section-heading" aria-labelledby="motion-title">
-        <span class="section-label">AIGC Archive</span>
-        <h2 id="motion-title">Motion Experiments</h2>
-      </section>
+        <section class="case-panel" aria-label="鲸落项目信息">
+          <article class="case-item">
+            <strong>Project</strong>
+            <p>鲸落</p>
+          </article>
+          <article class="case-item">
+            <strong>Type</strong>
+            <p>科普片十分钟</p>
+          </article>
+          <article class="case-item">
+            <strong>My Role</strong>
+            <p>AIGC 影像生成、动态视觉筛选、短片节奏整理与内容分区编排。</p>
+          </article>
+        </section>
 
-      <section class="motion-grid" aria-labelledby="motion-title">
-        <figure class="motion-card">
-          <video src="assets/aigc-motion/01.mp4" controls muted playsinline preload="metadata"></video>
-          <figcaption>01</figcaption>
-        </figure>
-        <figure class="motion-card">
-          <video src="assets/aigc-motion/02.mp4" controls muted playsinline preload="metadata"></video>
-          <figcaption>02</figcaption>
-        </figure>
-        <figure class="motion-card">
-          <video src="assets/aigc-motion/03.mp4" controls muted playsinline preload="metadata"></video>
-          <figcaption>03</figcaption>
-        </figure>
-        <figure class="motion-card">
-          <video src="assets/aigc-motion/04.mp4" controls muted playsinline preload="metadata"></video>
-          <figcaption>04</figcaption>
-        </figure>
-      </section>
+        <section class="section-heading" aria-labelledby="motion-title">
+          <span class="section-label">AIGC Archive</span>
+          <h2 id="motion-title">Motion Experiments</h2>
+        </section>
 
-      <div class="workflow-link" aria-label="TapNow 工作流">
-        <strong>TapNow Workflow</strong>
-        <a href="https://app.tapnow.ai/tapflow/view/69875f9e" target="_blank" rel="noreferrer">
-          打开鲸落工作流
-        </a>
-      </div>
+        <section class="motion-grid" aria-labelledby="motion-title">
+          <figure class="motion-card">
+            <video src="assets/aigc-motion/01.mp4" controls muted playsinline preload="metadata"></video>
+            <figcaption>01</figcaption>
+          </figure>
+          <figure class="motion-card">
+            <video src="assets/aigc-motion/02.mp4" controls muted playsinline preload="metadata"></video>
+            <figcaption>02</figcaption>
+          </figure>
+          <figure class="motion-card">
+            <video src="assets/aigc-motion/03.mp4" controls muted playsinline preload="metadata"></video>
+            <figcaption>03</figcaption>
+          </figure>
+          <figure class="motion-card">
+            <video src="assets/aigc-motion/04.mp4" controls muted playsinline preload="metadata"></video>
+            <figcaption>04</figcaption>
+          </figure>
+        </section>
+
+        <div class="workflow-link" aria-label="鲸落 TapNow 工作流">
+          <strong>TapNow Workflow</strong>
+          <a href="https://app.tapnow.ai/tapflow/view/69875f9e" target="_blank" rel="noreferrer">
+            打开鲸落工作流
+          </a>
+        </div>
+      </section>
     </main>
     <script>
       function updateBackgroundFade() {
